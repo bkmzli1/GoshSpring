@@ -1,5 +1,5 @@
 # GoshSpring
-[урок 1](https://github.com/bkmzli1/GoshSpring)
+[урок 1](https://github.com/bkmzli1/GoshSpring/tree/%231_-_Создание_веб-сайта_на_Java)
 [урок 2](https://github.com/bkmzli1/GoshSpring/tree/%232_-_Главная_страница_сайта)
 [урок 3](https://github.com/bkmzli1/GoshSpring/tree/%233_-_Разработка_раздела_«Блог»)
 [урок 4](https://github.com/bkmzli1/GoshSpring/tree/%234_-_Работа_с_базой_данных_MySQL._Создание_модели)
