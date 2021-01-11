@@ -12,6 +12,11 @@
 <header th:insert="bloks/header :: header"></header>
 <div class="container mt-5">
     <h1>Блог сайта</h1>
+    <div th:each="el : ${posts}">
+        <h3 th:text="${el.title}"> </h3>
+        <h3 th:text="${el.anons}"> </h3>
+        <a th:href="'/blog/'+ ${el.id}">детальнее </a>
+    </div>
 </div>
 <header th:insert="bloks/footer :: footer"></header>
 </body>
