@@ -17,16 +17,23 @@
 </head>
 <body>
 <header th:insert="bloks/header :: header"></header>
-<div class="container mt-5 ">
-    <div class="alert alert-info mt-2">
-        <h1 th:text="${post.title}"></h1>
-        <p th:text="${post.full_text}"></p>
-        <p><b>Просмотры:</b> <span th:text="${post.views}"></span></p>
-        <a th:href="'/blog/'+${post.id} +'/edit'" class="btn bg-warning">Редактировать</a>
-        <form th:action="'/blog/'+${post.id} +'/remove'" method="POST">
-            <button class="btn bg-warning" type="submit">удалить</button>
-        </form>
-    </div>
+<div class="container mt-5">
+    <h1>Добавление статьи</h1>
+    <form method="post">
+        <label class="container mt-5">
+            <input type="text" th:value="${post.title}" name="title" placeholder="Введите название статьи"
+                   class="form-control"> <br>
+
+            <input type="text" name="anons" th:value="${post.anons}" placeholder="Введите название anons"
+                   class="form-control"><br>
+
+            <textarea name="full_text" placeholder="Введите текст" class="form-control" th:text="${post.full_text}"/>
+            <br>
+
+            <button type="submit" class="btn-success">Добавить статью</button>
+        </label>
+    </form>
+
 </div>
 <header th:insert="bloks/footer :: footer"></header>
 </body>

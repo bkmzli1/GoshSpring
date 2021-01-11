@@ -50,4 +50,30 @@ public class BlogController {
         model.addAttribute("post", postRepo.findAllById(id));
         return "blog-details";
     }
+
+    @GetMapping("/{id}/edit")
+    public String getEditPost(@PathVariable String id, Model model) {
+        if (!this.postRepo.existsById(id))
+            return "redirect:/blog";
+        model.addAttribute("post", postRepo.findAllById(id));
+        return "blog-edit";
+    }
+
+    @PostMapping("/{id}/remove")
+    public String removePost(@PathVariable String id, Model model) {
+        this.postRepo.delete(postRepo.findAllById(id));
+        return "redirect:/blog";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String editPost(@PathVariable String id, @RequestParam String title, @RequestParam String anons, @RequestParam String full_text,Model model) {
+        if (!this.postRepo.existsById(id))
+            return "redirect:/blog";
+        Post post = postRepo.findAllById(id);
+        post.setAnons(anons);
+        post.setFull_text(full_text);
+        post.setTitle(title);
+        this.postRepo.save(post);
+        return "redirect:/blog/";
+    }
 }
