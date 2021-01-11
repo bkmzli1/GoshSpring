@@ -4,4 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ru.tehauth.demo.domain.Post;
 
 public interface PostRepo extends CrudRepository<Post, String> {
+    Post findAllById(String id);
 }
