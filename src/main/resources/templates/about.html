@@ -1,10 +1,579 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+            integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+            integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+            crossorigin="anonymous"></script>
+
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//s.w.org">
+    <link rel="stylesheet" id="wp-block-library-theme-css"
+          href="https://zooblog.ru/wp-includes/css/dist/block-library/theme.min.css" media="all">
+    <link rel="stylesheet" id="google-fonts-css"
+          href="https://fonts.googleapis.com/css?family=Montserrat%3A400%2C400i%2C700&amp;subset=cyrillic&amp;display=swap"
+          media="all">
+    <link rel="stylesheet" id="reboot-style-css"
+          href="https://zooblog.ru/wp-content/themes/reboot/assets/css/style.min.css" media="all">
+    <script async="" src="//www.google-analytics.com/analytics.js"></script>
+    <script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script>
+    <script src="https://zooblog.ru/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+    <script src="https://zooblog.ru/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+    <style>.pseudo-clearfy-link {
+        color: #008acf;
+        cursor: pointer;
+    }
+
+    .pseudo-clearfy-link:hover {
+        text-decoration: none;
+    }</style>
+    <script type="text/javascript" src="https://zooblog.ru/wp-content/plugins/wt-copy-link/script/jscript3.js"></script>
+    <script type="text/javascript">var wp_copy = {
+        tag: "Источник: ",
+        ex: 0,
+        url: "https://zooblog.ru/wp-content/plugins/wt-copy-link",
+        nonce: "eadf593513",
+        ip: "5.199.198.115",
+        save: 0,
+        save_content: 0
+    };</script>
+    <style>.scrolltop:before {
+        color: #4d7766
+    }
+
+
+
+    ::selection, .card-slider__category, .card-slider-container .swiper-pagination-bullet-active, .post-card--grid .post-card__thumbnail:before, .post-card:not(.post-card--small) .post-card__thumbnail a:before, .post-card:not(.post-card--small) .post-card__category, .post-box--high .post-box__category span, .post-box--wide .post-box__category span, .page-separator, .pagination .nav-links .page-numbers:not(.dots):not(.current):before, .btn, .btn-primary:hover, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle, .comment-respond .form-submit input, .page-links__item {
+        background-color: #80ccb2
+    }
+
+    .entry-image--big .entry-image__body .post-card__category a, .home-text ul:not([class]) > li:before, .page-content ul:not([class]) > li:before, .taxonomy-description ul:not([class]) > li:before, .widget-area .widget_categories ul.menu li a:before, .widget-area .widget_categories ul.menu li span:before, .widget-area .widget_categories > ul li a:before, .widget-area .widget_categories > ul li span:before, .widget-area .widget_nav_menu ul.menu li a:before, .widget-area .widget_nav_menu ul.menu li span:before, .widget-area .widget_nav_menu > ul li a:before, .widget-area .widget_nav_menu > ul li span:before, .page-links .page-numbers:not(.dots):not(.current):before, .page-links .post-page-numbers:not(.dots):not(.current):before, .pagination .nav-links .page-numbers:not(.dots):not(.current):before, .pagination .nav-links .post-page-numbers:not(.dots):not(.current):before, .entry-image--full .entry-image__body .post-card__category a, .entry-image--fullscreen .entry-image__body .post-card__category a, .entry-image--wide .entry-image__body .post-card__category a {
+        background-color: #80ccb2
+    }
+
+    .comment-respond input:focus, select:focus, textarea:focus, .post-card--grid.post-card--thumbnail-no, .post-card--standard:after, .post-card--related.post-card--thumbnail-no:hover, .spoiler-box, .btn-primary, .btn-primary:hover, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle, .inp:focus, .entry-tag:focus, .entry-tag:hover, .search-screen .search-form .search-field:focus, .entry-content ul:not([class]) > li:before, .text-content ul:not([class]) > li:before, .page-content ul:not([class]) > li:before, .taxonomy-description ul:not([class]) > li:before, .entry-content blockquote,
+    .input:focus, input[type=color]:focus, input[type=date]:focus, input[type=datetime-local]:focus, input[type=datetime]:focus, input[type=email]:focus, input[type=month]:focus, input[type=number]:focus, input[type=password]:focus, input[type=range]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=time]:focus, input[type=url]:focus, input[type=week]:focus, select:focus, textarea:focus {
+        border-color: #80ccb2 !important
+    }
+
+    .post-card--small .post-card__category, .post-card__author:before, .post-card__comments:before, .post-card__date:before, .post-card__like:before, .post-card__views:before, .entry-author:before, .entry-date:before, .entry-time:before, .entry-views:before, .entry-content ol:not([class]) > li:before, .text-content ol:not([class]) > li:before, .entry-content blockquote:before, .spoiler-box__title:after, .search-icon:hover:before, .search-form .search-submit:hover:before, .star-rating-item.hover,
+    .comment-list .bypostauthor > .comment-body .comment-author:after,
+    .breadcrumb a, .breadcrumb span,
+    .search-screen .search-form .search-submit:before,
+    .star-rating--score-1:not(.hover) .star-rating-item:nth-child(1),
+    .star-rating--score-2:not(.hover) .star-rating-item:nth-child(1), .star-rating--score-2:not(.hover) .star-rating-item:nth-child(2),
+    .star-rating--score-3:not(.hover) .star-rating-item:nth-child(1), .star-rating--score-3:not(.hover) .star-rating-item:nth-child(2), .star-rating--score-3:not(.hover) .star-rating-item:nth-child(3),
+    .star-rating--score-4:not(.hover) .star-rating-item:nth-child(1), .star-rating--score-4:not(.hover) .star-rating-item:nth-child(2), .star-rating--score-4:not(.hover) .star-rating-item:nth-child(3), .star-rating--score-4:not(.hover) .star-rating-item:nth-child(4),
+    .star-rating--score-5:not(.hover) .star-rating-item:nth-child(1), .star-rating--score-5:not(.hover) .star-rating-item:nth-child(2), .star-rating--score-5:not(.hover) .star-rating-item:nth-child(3), .star-rating--score-5:not(.hover) .star-rating-item:nth-child(4), .star-rating--score-5:not(.hover) .star-rating-item:nth-child(5) {
+        color: #80ccb2
+    }
+
+    .entry-content a:not(.wp-block-button__link), .entry-content a:not(.wp-block-button__link):visited, .spanlink, .comment-reply-link, .pseudo-link, .widget_calendar a, .widget_recent_comments a, .child-categories ul li a {
+        color: #669d89
+    }
+
+    .child-categories ul li a {
+        border-color: #669d89
+    }
+
+    a:hover, a:focus, a:active, .spanlink:hover, .top-menu ul li > span:hover, .main-navigation ul li a:hover, .main-navigation ul li span:hover, .footer-navigation ul li a:hover, .footer-navigation ul li span:hover, .comment-reply-link:hover, .pseudo-link:hover, .child-categories ul li a:hover {
+        color: #111111
+    }
+
+    .top-menu > ul > li > a:before, .top-menu > ul > li > span:before {
+        background: #111111
+    }
+
+    .child-categories ul li a:hover, .post-box--no-thumb a:hover {
+        border-color: #111111
+    }
+
+    .post-box--card:hover {
+        box-shadow: inset 0 0 0 1px #111111
+    }
+
+    .post-box--card:hover {
+        -webkit-box-shadow: inset 0 0 0 1px #111111
+    }
+
+    @media (min-width: 768px) {
+        body.custom-background {
+            background-image: url("https://zooblog.ru/wp-content/uploads/2021/01/forest-herbs-blue-background_8365-70_3.jpg")
+        }
+    }
+
+    @media (min-width: 768px) {
+        body.custom-background {
+            background-repeat: repeat
+        }
+    }
+
+    .site-header, .site-header a, .site-header .pseudo-link {
+        color: #4d7766
+    }
+
+    .humburger span, .top-menu > ul > li > a:before, .top-menu > ul > li > span:before {
+        background: #4d7766
+    }
+
+    @media (min-width: 768px) {
+        .site-header {
+            background-image: url("https://zooblog.ru/wp-content/uploads/2021/01/bg-floral-1-top.png")
+        }
+    }
+
+    @media (min-width: 768px) {
+        .site-header {
+            background-repeat: repeat-x
+        }
+    }
+
+    .main-navigation, .footer-navigation, .footer-navigation .removed-link, .main-navigation .removed-link, .main-navigation ul li > a, .footer-navigation ul li > a {
+        color: #65b89e
+    }
+
+    .site-footer, .site-footer a, .site-footer .pseudo-link {
+        color: #fef4d4
+    }
+
+    .site-footer {
+        background-color: #537f6f
+    }</style>
+    <style type="text/css" id="wp-custom-css">
+        @media (min-width: 1200px) {
+
+            .container, .fixed.block-after-site, .fixed.main-navigation-inner, .fixed.related-posts, .fixed.section-block, .fixed.section-html, .fixed.site-content, .fixed.site-footer-inner, .fixed.site-header-inner, .footer-navigation.fixed, .main-navigation.fixed, .site-footer.fixed, .site-header.fixed {
+                max-width: 1020px;
+            }
+
+
+        }
+
+
+        h2, h3, h4, h5, h6 {
+            margin: 1.3em 0 1em;
+        }
+
+        .entry-content img {
+            border-radius: 10px;
+        }
+
+        /*--------------------------------------------------------------
+           Galleries
+        --------------------------------------------------------------*/
+        .gallery {
+            margin: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+        }
+
+        .gallery .gallery-icon,
+        .gallery .gridlove-popup {
+            display: inline-block;
+            height: 100%;
+        }
+
+        .gallery-icon img {
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            padding: 0 2px 2px 0;
+            text-align: center;
+            vertical-align: top;
+            width: 100%;
+            margin: 0;
+            position: relative;
+        }
+
+        .gallery-columns-1.owl-carousel,
+        .wp-block-gallery.columns-1 {
+            padding: 0;
+        }
+
+        .gallery-columns-1 .gallery-item {
+            width: 100%;
+        }
+
+        .gallery-columns-1 {
+            display: block;
+        }
+
+        .gallery-columns-4 .gallery-item a:after,
+        .gallery-columns-5 .gallery-item a:after,
+        .gallery-columns-6 .gallery-item a:after,
+        .gallery-columns-7 .gallery-item a:after {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            margin-left: -20px;
+            margin-top: -20px;
+        }
+
+        .gallery-columns-8 .gallery-item a:after,
+        .gallery-columns-9 .gallery-item a:after {
+            display: none;
+        }
+
+        .gallery .gallery-item a:hover:after,
+        .wp-block-gallery .blocks-gallery-item a:hover:after {
+            opacity: 1;
+        }
+
+        .entry-content .gallery,
+        .entry-content .gallery-columns-1.owl-carousel,
+        .wp-block-gallery.columns-1 {
+            margin-bottom: 30px;
+        }
+
+        .gallery-columns-1 .owl-controls,
+        .wp-block-gallery.columns-1 .owl-controls {
+            width: 100%;
+            bottom: auto !important;
+            top: 50%;
+            margin-top: -20px;
+            height: 40px;
+            pointer-events: none;
+        }
+
+        .gallery-columns-1 .owl-next,
+        .wp-block-gallery.columns-1 .owl-next {
+            right: 30px;
+            position: absolute;
+        }
+
+        .gallery-columns-1 .owl-prev,
+        .wp-block-gallery.columns-1 .owl-prev {
+            left: 30px;
+            position: absolute;
+        }
+
+        .mfp-title {
+            top: -48px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 3px 8px;
+            position: absolute;
+            color: #CCC;
+            font-size: 12px;
+            line-height: 18px;
+        }
+
+        .mfp-title:empty,
+        .mfp-counter:empty {
+            padding: 0;
+        }
+
+        .gallery-columns-1 .gallery-item {
+            display: none;
+        }
+
+        .gallery-columns-1 .gallery-item:first-child {
+            display: block;
+        }
+
+        .gallery-columns-1 .gallery-item {
+            max-width: 100%;
+        }
+
+        .gallery-columns-2 .gallery-item {
+            max-width: 50%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+        }
+
+        .gallery-columns-3 .gallery-item {
+            max-width: 33.33%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 33.33%;
+            flex: 0 0 33.33%;
+        }
+
+        .gallery-columns-4 .gallery-item {
+            max-width: 25%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+        }
+
+        .gallery-columns-5 .gallery-item {
+            max-width: 20%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+        }
+
+        .gallery-columns-6 .gallery-item {
+            max-width: 16.66%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 16.66%;
+            flex: 0 0 16.66%;
+        }
+
+        .gallery-columns-7 .gallery-item {
+            max-width: 14.28%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 14.28%;
+            flex: 0 0 14.28%;
+        }
+
+        .gallery-columns-8 .gallery-item {
+            max-width: 12.5%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 12.5%;
+            flex: 0 0 12.5%;
+        }
+
+        .gallery-columns-9 .gallery-item {
+            max-width: 11.11%;
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 11.11%;
+            flex: 0 0 11.11%;
+        }
+
+        .gallery-icon img {
+            margin: 0 auto;
+        }
+
+        .gallery-icon .herald-popup {
+            position: relative;
+            float: left;
+            outline: none;
+            width: 100%;
+        }
+
+        .gallery-columns-2 .gallery-item:nth-of-type(2n),
+        .gallery-columns-3 .gallery-item:nth-of-type(3n),
+        .gallery-columns-4 .gallery-item:nth-of-type(4n),
+        .gallery-columns-5 .gallery-item:nth-of-type(5n),
+        .gallery-columns-6 .gallery-item:nth-of-type(6n),
+        .gallery-columns-7 .gallery-item:nth-of-type(7n),
+        .gallery-columns-8 .gallery-item:nth-of-type(8n),
+        .gallery-columns-9 .gallery-item:nth-of-type(9n) {
+            padding-right: 0;
+        }
+
+        .gallery-columns-1 .gallery-item {
+            padding: 0;
+        }
+
+        button.mfp-arrow,
+        .mfp-image-holder button.mfp-close {
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            -webkit-box-shadow: 0 3px 5px 0 rgba(0, 1, 1, 0.1);
+            box-shadow: 0 3px 5px 0 rgba(0, 1, 1, 0.1);
+            font-size: 13px;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 3px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            padding: 0;
+            pointer-events: auto;
+        }
+
+        .mfp-arrow-right {
+            right: 24px;
+        }
+
+        .mfp-arrow-left {
+            left: 24px;
+        }
+
+        .mfp-arrow-right:before,
+        .mfp-arrow-left:before {
+            font-family: "FontAwesome";
+        }
+
+        .mfp-arrow-left:before {
+            content: "\f053";
+        }
+
+        .mfp-arrow-right:before {
+            content: "\f054";
+        }
+
+        button.mfp-arrow:hover,
+        .mfp-image-holder button.mfp-close:hover {
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .mfp-image-holder button.mfp-close {
+            right: -55px;
+            top: 10px;
+            text-align: center;
+            font-size: 27px;
+        }
+
+        .mfp-bg,
+        .mfp-wrap {
+            cursor: pointer;
+        }
+
+
+        /*--------------------------------------------------------------
+           Galleries
+        --------------------------------------------------------------*/
+
+        .wpshoplightbox--open .wpshoplightbox-image {
+            height: 90%;
+        }
+
+
+        .sidebar-none .entry-excerpt {
+            text-align: none;
+        }
+
+
+        .site-branding {
+            margin: auto;
+        }
+
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter30333287 = new Ya.Metrika({
+                        id: 30333287,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true
+                    });
+                } catch (e) {
+                }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks");
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/30333287" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-68434193-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 </head>
 <body>
 <header th:insert="bloks/header :: header"></header>
+
+
+<div style="margin: 0px 20px" id="primary" class="content-area" itemscope="" itemtype="http://schema.org/Article">
+    <main id="main" class="site-main">
+
+
+        <article id="post-2" class="article-post post-2 page type-page status-publish ">
+
+
+            <h1 class="entry-title" itemprop="headline">О сайте</h1>
+
+
+            <div class="entry-content" itemprop="articleBody">
+                <p>Приветствуем всех любителей домашних и диких животных!<br>
+                    Наш сайт ведется в форме сетевого дневника (блога). Материалы добавляется на сайт как Модераторами
+                    сайта, так и зарегистрированными пользователями, т.е. все желающие принять участие в жизни блога или
+                    просто опубликовать фото своих питомцев, могут сделать это.<br>
+                    Милости просим!</p>
+                <h2>Авторское право</h2>
+                <ul>
+                    <li>Гипотетически, все фото и текстовые материалы, представленные в свободно
+                        распространяются в сети, здесь лишь аккумулируются лучшие из них и выкладываются на обозрение и
+                        оценку всем посетителям.
+                    </li>
+                    <li>Логотип сайта «ЗооБлог.ру» на фотоматериалах обозначает факт размещения фото на данном сайте и
+                        ничего более.
+                    </li>
+                    <li>Авторские права на все размещенные материалы, принадлежат их владельцам.</li>
+                </ul>
+                <div>Если Вы являетесь автором какой либо фотографии, или текстового материала, и против его размещения&nbsp;<a
+                        href="/contact/">свяжитесь с нами</a>, мы решим вопрос полюбовно.
+                </div>
+            </div><!-- .entry-content -->
+
+        </article>
+
+
+        <meta itemscope="" itemprop="mainEntityOfPage" itemtype="https://schema.org/WebPage"
+              itemid="https://zooblog.ru/about/" content="О сайте">
+        <meta itemprop="dateModified" content="2021-01-01">
+        <meta itemprop="datePublished" content="2017-03-08T12:31:57+03:00">
+        <meta itemprop="author" content="elk">
+        <div itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization" style="display: none;">
+            <div itemprop="logo" itemscope="" itemtype="https://schema.org/ImageObject"><img itemprop="url image"
+                                                                                             src="https://zooblog.ru/wp-content/uploads/2017/03/logo.png"
+                                                                                             alt="ЗооБлог"></div>
+            <meta itemprop="name" content="ЗооБлог">
+            <meta itemprop="telephone" content="ЗооБлог">
+            <meta itemprop="address" content="https://zooblog.ru">
+        </div>
+    </main><!-- #main -->
+
+</div>
+
+<div style="width: 100%;">
+    <header style="position: absolute; width: 100%;" class="" th:insert="bloks/footer :: footer"></header>
+</div>
+
 </body>
 </html>

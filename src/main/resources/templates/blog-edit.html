@@ -18,23 +18,29 @@
 <body>
 <header th:insert="bloks/header :: header"></header>
 <div class="container mt-5">
-    <h1>Добавление статьи</h1>
-    <form method="post">
+    <h1>Изменить статьи</h1>
+    <form method="post" enctype="multipart/form-data">
         <label class="container mt-5">
-            <input type="text" th:value="${post.title}" name="title" placeholder="Введите название статьи"
+            <input required type="text" th:value="${post.title}" name="title" placeholder="Введите название статьи"
                    class="form-control"> <br>
 
-            <input type="text" name="anons" th:value="${post.anons}" placeholder="Введите название anons"
+            <input required type="text" name="anons" th:value="${post.anons}" placeholder="Введите название anons"
                    class="form-control"><br>
 
-            <textarea name="full_text" placeholder="Введите текст" class="form-control" th:text="${post.full_text}"/>
+            <textarea required name="full_text" placeholder="Введите текст" class="form-control" th:text="${post.full_text}"/>
             <br>
+            <p> загрузить изоброжение <input  type="file"
+                                             id="file"
+                                             name="multipartFile"
 
+                                             (change)="handleFileInputTile($event.target.files)" accept="image/png,image/jpeg"></p>
             <button type="submit" class="btn-success">Добавить статью</button>
         </label>
     </form>
 
 </div>
-<header th:insert="bloks/footer :: footer"></header>
+<div style="width: 100%;">
+    <header  style="position: absolute; width: 100%;" class=""  th:insert="bloks/footer :: footer"></header>
+</div>
 </body>
 </html>

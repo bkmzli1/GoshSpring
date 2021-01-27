@@ -17,17 +17,66 @@
 </head>
 <body>
 <header th:insert="bloks/header :: header"></header>
-<div class="container mt-5 ">
-    <div class="alert alert-info mt-2">
-        <h1 th:text="${post.title}"></h1>
-        <p th:text="${post.full_text}"></p>
-        <p><b>Просмотры:</b> <span th:text="${post.views}"></span></p>
-        <a th:href="'/blog/'+${post.id} +'/edit'" class="btn bg-warning">Редактировать</a>
-        <form th:action="'/blog/'+${post.id} +'/remove'" method="POST">
-            <button class="btn bg-warning" type="submit">удалить</button>
-        </form>
+<div class="container m-lg-auto ">
+    <!--    <div class="alert alert-info mt-2">-->
+    <!--        <h1 th:text="${post.title}"></h1>-->
+    <!--        <p th:text="${post.full_text}"></p>-->
+    <!--        <p><b>Просмотры:</b> <span th:text="${views}"></span></p>-->
+    <!--        <div class="ml-auto">-->
+
+    <!--        </div>-->
+    <!--        <div class="btn-group" role="group" >-->
+    <!--            <a style="margin: 0 10px" th:href="'/blog/'+${post.id} +'/edit'" class="btn bg-warning ">Редактировать</a>-->
+    <!--            <form th:action="'/blog/'+${post.id} +'/remove'" method="POST">-->
+    <!--                <button class="btn bg-warning" type="submit">удалить</button>-->
+    <!--            </form>-->
+    <!--        </div>-->
+    <!--     <p></p>-->
+
+    <!--    </div>-->
+
+    <style>
+        .customers-img {
+            position: center;
+            width: 75%;
+            height: auto;
+        }
+        .pic {
+            text-align: center; /* Выравнивания картинки по центру в html */
+        }
+
+    </style>
+
+    <div class="col">
+        <div style="height: 100%" class="card shadow-sm alert alert-dark mt-1">
+            <p class="pic">
+                <img class="customers-img align-content-md-center" th:src="'../'+${post.img}">
+            </p>
+
+            <div class="card-body down" style="height:100%">
+                <h1 th:text="${post.title}"></h1>
+                <p th:text="${post.full_text}"></p>
+                <p><b></b><svg style="fill: #c0392b;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                </svg> <span th:text="${views}"></span></p>
+                <div class="ml-auto">
+
+                </div>
+                <div class="btn-group" >
+                    <a th:href="'/blog/'+${post.id} +'/edit'"
+                       class="btn btn-sm btn-outline-secondary ">Редактировать</a>
+                    <form th:action="'/blog/'+${post.id} +'/remove'" method="POST">
+                        <button style="margin: 0 10px" class="btn btn-sm btn-outline-secondary" type="submit">удалить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<header th:insert="bloks/footer :: footer"></header>
+
+<div style="width: 100%;">
+    <header style="position: absolute; width: 100%;" class="" th:insert="bloks/footer :: footer"></header>
+</div>
 </body>
 </html>
